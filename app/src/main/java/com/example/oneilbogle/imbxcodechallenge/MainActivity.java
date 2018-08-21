@@ -10,9 +10,24 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    TextView captureGps;
+
+    Double Long;
+
+    Double Lat;
+
+
+
+
+
+
+
 
 
     final static int REQUEST_LOCATION = 0;
@@ -25,7 +40,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Button getLocation = findViewById(R.id.getLocation);
+        captureGps = (TextView) findViewById(R.id.getgpstxt);
+
+        Button getLocation =(Button) findViewById(R.id.getLocation);
+
+
+        captureGps.setVisibility(View.GONE);
+
+
+
 
 
 
@@ -67,12 +90,21 @@ public class MainActivity extends AppCompatActivity {
             Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
             if (location != null) {
-                String message = String.format(
-                        "Current Location \n Longitude: %1$s \n Latitude: %2$s",
-                        location.getLongitude(), location.getLatitude()
-                );
 
-                Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+
+//                String messageL = String.format(
+//                        "Current Location \n Longitude: %1$s \n Latitude: %2$s",
+//                        location.getLongitude(), location.getLatitude()
+//                );
+
+
+
+                Lat = location.getLatitude();
+
+                Long = location.getLatitude();
+
+                captureGps.setVisibility(View.VISIBLE);
+                captureGps.setText("This is Long " + Long + " This is Lat " + Lat);
 
 
             }
