@@ -11,7 +11,7 @@ import com.example.oneilbogle.imbxcodechallenge.data.model.Get;
 
 import java.util.List;
 
-public class WeatherReport extends RecyclerView.Adapter<WeatherReport.ViewHolder> {
+public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHolder> {
 
 
     private List<Get> mItems;
@@ -41,14 +41,14 @@ public class WeatherReport extends RecyclerView.Adapter<WeatherReport.ViewHolder
         }
     }
 
-    public WeatherReport(Context context, List<Get> posts, PostItemListener itemListener) {
+    public WeatherAdapter(Context context, List<Get> posts, PostItemListener itemListener) {
         mItems = posts;
         mContext = context;
         mItemListener = itemListener;
     }
 
     @Override
-    public WeatherReport.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public WeatherAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -60,11 +60,11 @@ public class WeatherReport extends RecyclerView.Adapter<WeatherReport.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(WeatherReport.ViewHolder holder, int position) {
+    public void onBindViewHolder(WeatherAdapter.ViewHolder holder, int position) {
 
-        Get item = mItems.get(position);
+        Get witem = mItems.get(position);
         TextView textView = holder.wTitle;
-        textView.setText(item.getTitle());
+        textView.setText(witem.getTitle());
     }
 
     @Override

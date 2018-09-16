@@ -41,8 +41,9 @@
         android:layout_alignParentLeft="true">
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/wea_answers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@android:layout/simple_list_item_1"/>
+            tools:listitem="@android:layout/simple_list_item_1" />
     </FrameLayout>
 </RelativeLayout>
