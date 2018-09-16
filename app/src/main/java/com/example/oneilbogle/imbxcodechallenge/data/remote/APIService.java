@@ -1,21 +1,22 @@
 package com.example.oneilbogle.imbxcodechallenge.data.remote;
 
-import com.example.oneilbogle.imbxcodechallenge.data.model.Post;
+import com.example.oneilbogle.imbxcodechallenge.data.model.Get;
 
 import retrofit2.Call;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.POST;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface APIService {
 
-    @POST("/api/location/search/?lattlong=")
-    @FormUrlEncoded
-    Call<Post> savePost(@Field("distance") Integer distance,
-                        @Field("title") String title,
-                        @Field("location_type") String locationType,
-                        @Field("woeid") Integer woeid,
-                        @Field("latt_long") String lattLong);
+    //  api/location/search/?lattlong=36.96,-122.02
+
+    @GET("/api/location/search/?lattlong=")
+    Call<Get> getWeather();
+
+
+
+    @GET("/api/location/search/?lattlong=")
+    Call<Get> getWeather(@Query("location") String loc);
 
 
 
